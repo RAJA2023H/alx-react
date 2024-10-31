@@ -1,30 +1,21 @@
 {
   "name": "task_0",
   "version": "1.0.0",
-  "description": "<h1>0x00. Webpack</h1> - Resources Read or watch:",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RAJA2023H/alx-react.git"
-  },
-  "dependencies": {
-    "jquery": "^3.7.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "babel-loader": "^9.2.1",
-    "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4"
-  },
   "scripts": {
-    "build": "webpack --mode development"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RAJA2023H/alx-react/issues"
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
   },
-  "homepage": "https://github.com/RAJA2023H/alx-react#readme"
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }
