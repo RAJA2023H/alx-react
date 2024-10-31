@@ -1,2 +1,5 @@
 node_modules/
 dist/main.js
+package-lock.json
+/dist/*LICENSE*
+package-lock.json
