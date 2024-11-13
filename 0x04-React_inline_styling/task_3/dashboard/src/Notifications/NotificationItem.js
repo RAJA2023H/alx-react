@@ -1,20 +1,42 @@
 import React from 'react';
-import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 
-class NotificationItems extends React.Component {
-  render () {
+class NotificationItem extends React.Component {
+  render() {
+    const { type, value, html, markAsRead, id } = this.props;
+
     return (
       <li
-        className={css(styles.notificationItem, type === 'urgent' && styles.urgent)}
+        className={css(
+          styles.notificationItem,
+          type === 'urgent' && styles.urgent
+        )}
         data-notification-type={type}
         dangerouslySetInnerHTML={html ? { __html: html } : null}
+        onClick={() => markAsRead(id)}
       >
         {!html && value}
       </li>
     );
   }
 }
+
+NotificationItem.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.string,
+  html: PropTypes.shape({
+    __html: PropTypes.string,
+  }),
+  markAsRead: PropTypes.func,
+  id: PropTypes.string.isRequired,
+};
+
+NotificationItem.defaultProps = {
+  type: 'default',
+  markAsRead: () => {},
+};
+
 const styles = StyleSheet.create({
   notificationItem: {
     width: '100%',
@@ -27,16 +49,5 @@ const styles = StyleSheet.create({
   },
 });
 
-NotificationItem.propTypes = {
-  type: PropTypes.string,
-  value: PropTypes.string,
-  html: PropTypes.shape({
-    __html: PropTypes.string,
-  }),
-};
-
-NotificationItems.defaultProps = {
-  type: 'default',
-};
-
 export default NotificationItem;
+
