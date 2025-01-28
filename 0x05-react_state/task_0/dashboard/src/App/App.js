@@ -26,16 +26,19 @@ class App extends Component {
   }
 
   render() {
+    const { displayDrawer } = this.state;
+    const { isLoggedIn } = this.props;
+
     return (
       <>
         <Notifications 
-          displayDrawer={this.state.displayDrawer}
+          displayDrawer={displayDrawer}
           handleDisplayDrawer={this.handleDisplayDrawer}
           handleHideDrawer={this.handleHideDrawer}
         />
         <div className="App">
           <Header />
-          {this.props.isLoggedIn ? <CourseList /> : <Login />}
+          {isLoggedIn ? <CourseList /> : <Login />}
           <Footer />
         </div>
       </>
